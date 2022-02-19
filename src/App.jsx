@@ -23,6 +23,7 @@ import Footer from "components/Footer";
 import "style.css";
 import logo from 'images/Logo.png'
 import Whitelogo from 'images/White.png'
+import MenuItem from "antd/lib/menu/MenuItem";
 const { Header } = Layout;
 
 const styles = {
@@ -55,6 +56,7 @@ const styles = {
     position: "fixed",
     zIndex: 1,
     width: "100%",
+    margin: "auto",
     //background: "",
     //background:"#dae3fa",  // for header background
     display: "flex",
@@ -128,7 +130,7 @@ const App = ({ isServerInfo }) => {
   // console.log(scroll,"test")
   return (
    
-    <Layout style={{ height: "100vh", overflow: "auto",background: 'radial-gradient(50% 50% at 50% 50%, rgb(108 153 249 / 30%) 0px, rgba(233, 187, 196, 0.25) 100%)' }}>
+    <Layout style={{overflow: "auto",background: 'radial-gradient(50% 50% at 50% 50%, rgb(108 153 249 / 30%) 0px, rgba(233, 187, 196, 0.25) 100%)' }}>
       <Router>
       {isAuthenticated ? <div>
         <Header style={styles.userheader}>
@@ -273,7 +275,7 @@ const App = ({ isServerInfo }) => {
                 //marginLeft: "0px",
                 margin: "auto",
                 width: "100%",
-                flex: '1 0 40%',
+                flex: '1 0 5%',
                 lineHeight: '2.6',
                 borderRadius:'10px',
                // backgroundColor: "inherit",
@@ -346,7 +348,10 @@ const App = ({ isServerInfo }) => {
               <div className="gradient-bg-welcome">
                 <Home />
             </div>
+            
           </div>
+
+      
 
             </Route>
             <div className="container-md">
@@ -369,11 +374,18 @@ const App = ({ isServerInfo }) => {
         </div>
       </Router>
         
-      <Footer />
+      {/*<Footer />*/}
+     
+     <div>
+     
+              
+     </div>
+     <Footer />  
     </Layout>
+
+
   );
 };
-
 
 export const Logo = () => (
   <div style={{ display: "flex", flex: "auto" }}>
