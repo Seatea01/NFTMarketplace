@@ -202,11 +202,13 @@ only screen and (max-width: 1023px){
  padding-top: 260px;
 }
 .inner_first{
+  width: 100vw;
   align-items: center;
+  margin: auto;
   padding-left: 10vw;
+  padding-right: 10vw;
 }
 .inner_first button{
-  width: 30%;
   background-color: #2952e3;
   transition-duration: 0.4s;
   border-radius: 50px;

@@ -11,7 +11,7 @@ import Styles from "../styles/Home.module.css";
 import  { Moralis } from 'moralis';
 import Web3 from 'web3';
 //import usePops from "hooks/usePop";
-//import detectEthereumProvider from '@metamask/detect-provider';
+import { ethereum } from '@metamask/detect-provider';
 //import Mint from "components/Mint";
 const styles = {
   account: {
@@ -28,12 +28,30 @@ const styles = {
   text: {
     color: "#21BF96",
   },
+  perview: {
+
+  }
 };
 
 //const Web3 = require('web3');
 //var Web3 = new Web3();
-const nft_contract_address = "0x15B7a6A97bc769D6F43d8e7E36C0B9277755C189"
+
 export default function Pop() {
+const nft_contract_address = "0x6f6fa6211a13A045bEA9855C0F1dea84Cb0E2d02"
+  //const ImgPrev = () => {
+    const [{alt, src}, setImg] = useState({
+        src: "placeholder",
+        alt: 'Upload an Image'
+    });
+
+    const handleImg = (e) => {
+        if(e.target.files[0]) {
+            setImg({
+                src: URL.createObjectURL(e.target.files[0]),
+                alt: e.target.files[0].name
+            });    
+        }   
+    }
   //Function to upload files
     async function upload(){
       //const Web3 = new Web3(window.ethereum);
@@ -68,11 +86,12 @@ export default function Pop() {
         name: 'tokenURI'
         }]
     }, [_uri]);
-  /*  
+ 
     const transactionParameters = {
         to: nft_contract_address,
-        from: ethereum.selectedAddress,
-        from: ethereum.request,
+        from: ethereum.selectedAddress, 
+        //from: ethereum.request({ method: 'eth_accounts' }),
+        from: ethereum.request(),
         data: encodedFunction
     };
     const txt = await ethereum.request({
@@ -81,7 +100,7 @@ export default function Pop() {
     });
 
     return txt
-    */  
+      
   }
   //end of function to mint file...
 
@@ -92,7 +111,9 @@ export default function Pop() {
     }
   //end of function to notify msg for minting
 
-  
+
+
+
 
   //const { authenticate, isAuthenticated} = useMoralis();
   const { walletAddress, chainId } = useMoralisDapp();
@@ -139,7 +160,7 @@ export default function Pop() {
           fontWeight: "500",
         }}
         style={{ fontSize: "16px", fontWeight: "500" }}
-        width="400px"
+        width="800px"
       >
         Account
         <Card
@@ -156,28 +177,38 @@ export default function Pop() {
             style={{ fontSize: "20px" }}
           />
          
-          <div style={{ marginTop: "10px", padding: "0 10px" }}>
-            <a
-              href={`${getExplorer(chainId)}/address/${walletAddress}`}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <SelectOutlined style={{ marginRight: "5px" }} />
-              View on Explorer
-            </a>
-          <div>
-            <input id="useremail" type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" />
-            <br />
-            <input id="name" type="text" class="form-control" placeholder="NFT Name" aria-label="URL" aria-describedby="basic-addon1" />
-          </div> <br />
-          <div>  
-              <textarea id="description" type="text" class="form-control" placeholder="Description" aria-label="URL" aria-describedby="basic-addon1" />
-            </div>
-            <div> <br />
-             <input type="file" id="file" />
-            </div>
+          <div style={{ marginTop: "10px"}}>
+              <a
+                href={`${getExplorer(chainId)}/address/${walletAddress}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <SelectOutlined style={{ marginRight: "5px" }} />
+                View on Explorer
+              </a>
+              <div className="sm:w-[90%] w-full flex items-center text-center mt-3" style={{flexWrap: "wrap"}}>
+                {/*first div*/}
+                <div className="justify-center items-center flex-col mt-5" style={{backgroundColor: "#bdbdbd2e", borderRadius: "7px", padding: "10px"}}><img src={src} alt={alt} style={{paddingTop: "1px", alignContent: "top", borderRadius: "7px", width: "210px", height: "210px"}} /></div>
+
+                {/*second div*/}
+                <div className="justify-center items-center flex-col mt-5">
+                <input style={{width: "100%"}} id="useremail" type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" />
+                  <br />
+                  <input style={{width: "100%"}} id="name" type="text" class="form-control" placeholder="NFT Name" aria-label="URL" aria-describedby="basic-addon1" />
+                  <br />
+                 
+                    <textarea style={{width: "100%"}} id="description" type="text" class="form-control" placeholder="Description" aria-label="URL" aria-describedby="basic-addon1" />
+                <br />
+                
+                <input type="file"  id="photo" accept=".png, .jpg, .jpeg" onChange={handleImg}/>
+                </div>
+
+                  
+                
+              </div>
+
             <hr />
-          <div class="input-group mb-3" id="resultSpace"></div>
+            <div class="input-group mb-3" id="resultSpace"></div>
           </div>
         </Card>
         <Button
@@ -201,3 +232,5 @@ export default function Pop() {
     </>
   );
 }
+
+
