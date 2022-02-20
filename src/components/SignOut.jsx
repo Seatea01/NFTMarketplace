@@ -4,19 +4,13 @@ import styles from "../styles/Home.module.css";
 import { useEffect, useState } from "react";
 import Pop from "components/Pop";
 import logo from 'images/Black.png'
-import { Menu, Layout } from "antd";
-import {
-  HashRouter as Router,
-  Switch,
-  Route,
-  NavLink,
-  Redirect,
-} from "react-router-dom";
+
 
 const Logostyles = {
 mylogo: {
-  maxWidth: "300px",
   height: "100px",
+  paddingTop: "15px",
+  paddingBottom: "15px",
 },
 };
 
@@ -25,7 +19,7 @@ export const SignOut = () => {
   const [balance, setBalance] = useState(0);
   const fetchBalance = async () => {
     try {
-      const options = { chain: Moralis.Chains.ETH_ROPSTEN };
+      const options = { chain: Moralis.Chains.BSC };
       const balance = await Moralis.Web3API.account.getNativeBalance(options);
       setBalance(balance.balance / 10 ** 18);
     } catch {}
@@ -37,7 +31,7 @@ export const SignOut = () => {
   const handleTransfer = async () => {
     try {
       await Moralis.transfer({
-        amount: Moralis.Units.ETH("0.1"),
+        amount: Moralis.Units.BSC("0.1"),
         receiver: "0xd2305b8155c4710c7fff1358d084f23959c999f3",
         type: "native",
       }).then((e) => {
@@ -48,14 +42,17 @@ export const SignOut = () => {
   };
 
   return (
+    
     <div className={signOutStyle.signOutCard}>
-      <h2>Welcome To NFTHarbor!</h2>
+      <span><h2>Welcome To NFTHarbor!</h2></span>
+
+      
       <button className={`${signOutStyle.refresh}`} onClick={fetchBalance}>
         Refresh
       </button>
-      <p className={signOutStyle.subHeader}>Details:</p>
+      <p className={signOutStyle.subHeader}>My Details:</p>
 
-      <div className={signOutStyle.detailsDiv}>
+      <div className={signOutStyle.detailsDiv} style={{flexWrap: "wrap"}}>
         <div>
           <h5>Account:</h5>
           <p>{user.attributes.accounts}</p>
@@ -63,27 +60,14 @@ export const SignOut = () => {
         <div>
           <h5>Binance Smart Chain (BNB)</h5>
           <p>{balance} </p>
-        </div>
-        
-        {/*<Router>
-        <Menu.Item key="pop">
-                <NavLink to="/pop">Create Items</NavLink>
-              </Menu.Item>
-              <Switch>
-                <Route path="/Pop">
-                  <Pop />
-                </Route>
-            </Switch>
-        </Router>*/}
-         
+        </div>   
       </div>
+
       <span style={{justify:"center"}}><img src={logo} alt="logo" style={Logostyles.mylogo} /></span>  
       
-      <div className={signOutStyle.fotter}>
+      <div className={signOutStyle.fotter} style={{justifyContent:"center"}}>
       <Pop />
-        {/*<button className={styles.loginButton} onClick={handleTransfer}>
-          Create NFT
-        </button>*/}
+    
         <button className={styles.loginButton} onClick={logout}>
           Sign Out
         </button>
