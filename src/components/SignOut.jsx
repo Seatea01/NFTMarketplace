@@ -2,8 +2,11 @@ import { useMoralis } from "react-moralis";
 import signOutStyle from "../styles/SignOut.module.css";
 import styles from "../styles/Home.module.css";
 import { useEffect, useState } from "react";
+import NativeBalance from "components/NativeBalance";
+import Chains from "components/Chains";
 import Pop from "components/Pop";
 import logo from 'images/Black.png'
+import { BSCLogo } from "./Chains/Logos";
 
 
 const Logostyles = {
@@ -11,6 +14,7 @@ mylogo: {
   height: "100px",
   paddingTop: "15px",
   paddingBottom: "15px",
+  margin: "auto",
 },
 };
 
@@ -44,23 +48,17 @@ export const SignOut = () => {
   return (
     
     <div className={signOutStyle.signOutCard}>
-      <span><h2>Welcome To NFTHarbor!</h2></span>
-
+      <div>
+          <p><button className={styles.loginButton}><div style={{display: "inline-flex"}}><BSCLogo />&nbsp;&nbsp; < NativeBalance /></div> </button></p>
+        </div> 
       
-      <button className={`${signOutStyle.refresh}`} onClick={fetchBalance}>
-        Refresh
-      </button>
-      <p className={signOutStyle.subHeader}>My Details:</p>
 
       <div className={signOutStyle.detailsDiv} style={{flexWrap: "wrap"}}>
-        <div>
-          <h5>Account:</h5>
+        <div><br />
+          <h5 style={{fontWeight: "bold", color: "#087bff"}}>Account:</h5>
           <p>{user.attributes.accounts}</p>
         </div>
-        <div>
-          <h5>Binance Smart Chain (BNB)</h5>
-          <p>{balance} </p>
-        </div>   
+          
       </div>
 
       <span style={{justify:"center"}}><img src={logo} alt="logo" style={Logostyles.mylogo} /></span>  
