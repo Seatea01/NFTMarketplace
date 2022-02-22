@@ -15,7 +15,6 @@ import { Menu, Layout } from "antd";
 import SearchCollections from "components/SearchCollections";
 import Home from "components/Home";
 import "antd/dist/antd.css";
-import NativeBalance from "components/NativeBalance";
 import "./style.css";
 import Text from "antd/lib/typography/Text";
 import NFTMarketTransactions from "components/NFTMarketTransactions";
@@ -175,7 +174,7 @@ const App = ({ isServerInfo }) => {
           )}
           <div style={styles.headerRight}>
             <Chains />
-            {width > 768 && <NativeBalance />}
+            
             {width > 600 && <Account />}
           </div> 
           <div className="sidemenu">
@@ -374,17 +373,18 @@ const App = ({ isServerInfo }) => {
         </div>
       </Router>
         
-      {/*<Footer />*/}
+      <Footer />
      
      <div>
      
               
      </div>
-     <Footer />  
+    
     </Layout>
 
-
+ 
   );
+ 
 };
 
 export const Logo = () => (
