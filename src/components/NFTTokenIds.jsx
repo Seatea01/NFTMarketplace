@@ -172,7 +172,7 @@ function NFTTokenIds({ inputValue, setInputValue }) {
 
   return (
     <>
-      <div className="row">
+      <div className="row" style={{ marginTop: "20vh"}}>
         {contractABIJson.noContractDeployed && (
           <>
             {/* <Alert
