@@ -141,7 +141,7 @@ function NFTMarketTransactions() {
 
   return (
     <>
-      <div class="row">
+      <div class="row" style={{ marginTop: "40vh"}}>
       <h1 className="text-center mb-4">📑 Your History</h1>
         <div style={styles.table}>
           <Table className="table-trans" columns={columns} dataSource={data} />
