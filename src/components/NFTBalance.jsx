@@ -163,7 +163,7 @@ function NFTBalance() {
 
   return (
     <>
-      <div className="row">
+      <div className="row" style={{ marginTop: "20vh"}}>
         <h1 className="text-center">🖼 Nft Balance</h1>
         {contractABIJson.noContractDeployed && (
           <>
