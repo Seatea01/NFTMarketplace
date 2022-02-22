@@ -57,31 +57,7 @@ const Welcome = () => {
                             {isAuthenticated ? <SignOut /> : <SignIn />}
                         </div>
                     </div>
-                    {/*<button type="button" onclick="window.open('../src/index.html', 'resizable=yes')">Create</button>
-
-                   <button id="btnConnect">Connect wallet</button>
-                    <button id="btnUserInfo">Profile</button>
-
-                    
-
-                    <div id="userInfo">
-                    <h4>User Profile</h4>
-                        <input type="text" id="txtUsername" required placeholder="Enter username" />
-                        <input type="text" id="txtEmail" placeholder="Enter email" />
-                        <small>Optional</small>
-
-                    
-
-                        <img src="" id="imgAvatar" alt="" />
-                        <label for="fileAvatar">Select Avatar</label>
-                        <input type="file" id="fileAvatar" />
-
-                        <button id="btnLogout">LogOut</button>
-                        <button id="btnCloseUserInfo">Close</button>
-                        <button id="btnSaveUserInfo">Save</button>
-                    </div>
-                   
-                    <Pop />*/}
+            
                 
 
                     <div className="grid sm:grid-cols-3 grid-cols-2 mt-10" style={{color: "#fff"}}>
