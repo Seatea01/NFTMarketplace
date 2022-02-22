@@ -23,7 +23,6 @@ const Footer = () => {
       <Router>
       <div className="w-full flex md:justify-center justify-between items-center flex-col p-4 gradient-bg-footer">
       <div className="w-full flex sm:flex-row flex-col justify-between items-center my-4">
-         <div className="flex flex-[0.5] justify-center items-center"><img src={logo} alt="logo" className="w-32" /> </div>
         <div className="flex flex-1 justify-evenly items-center flex-wrap sm:mt-0 mt-5 w-full">
             <Menu
             // theme="dark"
@@ -40,20 +39,6 @@ const Footer = () => {
           </Menu>
           </div>
         </div> 
-      </div>
-          
-
-          
-        
-
-       
-
-
-   
-
-      <div className="w-full flex md:justify-center justify-between items-center flex-col p-4 gradient-bg-footer">
-        
-      
 
       <div className="flex justify-center items-center flex-col mt-5">
         <p className="text-white text-sm text-center">Have questions? Send us an email!</p>
@@ -63,10 +48,10 @@ const Footer = () => {
       <div className="sm:w-[90%] w-full h-[0.25px] bg-gray-400 mt-5 " />
 
         <div className="sm:w-[90%] w-full flex justify-between items-center text-center mt-3">
-          <div className="text-white  text-center text-xs">@NFT Harbor &copy; 2022 All rights reserved</div>
+          <div className="text-white  text-center text-xs"></div>
           <p className="text-white  text-center text-xs">@NFT Harbor &copy; 2022 All rights reserved</p>
-          <p className="text-white  text-center text-xs">@NFT Harbor &copy; 2022 All rights reserved</p>
-        </div> https://twitter.com/TheAltCoinToken
+          <p className="text-white  text-center text-xs"></p>
+        </div>
 
       </div>
 
@@ -76,16 +61,13 @@ const Footer = () => {
             </Route>
             <div className="container-md">
             <Route path="/nftBalance">
-              <NFTBalance />
+              
             </Route>
             <Route path="/NFTMarketPlace">
-              <NFTTokenIds
-                inputValue={inputValue}
-                setInputValue={setInputValue}
-              />
+              
             </Route>
             <Route path="/Transactions">
-              <NFTMarketTransactions />
+             
             </Route>
             </div>
           </Switch>
